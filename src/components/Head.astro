@@ -1,0 +1,33 @@
+---
+import HeaderLink from "./HeadLink.astro";
+
+const links: { title: string, link: string}[] = [{ title: 'Home', link: '/'}, { title: 'Portfolio', link: '/portfolio'}, { title: 'Contacts', link: '/contacts'}]
+---
+
+<header class="header">
+  <a href="/">
+    <img src="/" alt="logo" width="36" height="36">
+  </a>
+  <div class="link-list">
+    {links.map(({title, link}) => (
+      <HeaderLink link={link} title={title} />
+      ))}
+  </div>
+</header>
+<style>
+  .header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    height: 80px;
+    padding: 12px 46px;
+    background-color: #fff;
+    box-shadow: 0 1px 8px  gray;
+  }
+  .link-list {
+    display: flex;
+    gap: 24px;
+  }
+</style>

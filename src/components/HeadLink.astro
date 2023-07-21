@@ -1,0 +1,37 @@
+---
+interface Props {
+  link: string
+  title: string
+}
+
+const { link, title } = Astro.props
+---
+<a href={link} class="header-link">{title}</a>
+
+<style>
+  a.header-link {
+    position: relative;
+    text-transform: uppercase;
+    transition: all .3s;
+    display: block;
+  }
+  a:hover::before {
+    width: 100%;
+    color: var(--primary)
+  }
+
+  a:hover {
+    color: var(--primary);
+  }
+
+  a::before {
+    content: '';
+		position: absolute;
+		width: 50%;
+		bottom: 0;
+		height: 1px;
+		border-bottom: 1px solid var(--primary);
+    display: flex;
+    transition: all .3s;
+  }
+</style>
